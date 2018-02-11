@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="532.0" prefWidth="1355.0"
+	stylesheets="@../css/masterbarang.css" xmlns="http://javafx.com/javafx/8.0.40"
+	xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.stth.pmi.barang.ui.controller.LaporanController">
+	<children>
+		<VBox prefHeight="200.0" prefWidth="100.0"
+			AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+			AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+			<children>
+				<HBox prefHeight="496.0" prefWidth="1335.0" spacing="10.0">
+					<children>
+						<VBox prefHeight="496.0" prefWidth="640.0" spacing="10.0">
+							<children>
+								<BorderPane>
+									<right>
+										<Button fx:id="btnTableRefersh" minWidth="20.0"
+											mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT"
+											onAction="#onClickBtnTableRefersh" prefHeight="25.0" text="Refresh"
+											BorderPane.alignment="CENTER" />
+									</right>
+									<left>
+										<Text strokeType="OUTSIDE" strokeWidth="0.0"
+											text="Laporan Data  Barang" BorderPane.alignment="CENTER">
+											<font>
+												<Font name="Calibri Bold" size="18.0" />
+											</font>
+										</Text>
+									</left>
+								</BorderPane>
+								<Separator prefWidth="200.0" />
+								<Text strokeType="OUTSIDE" strokeWidth="0.0"
+									text="Data Barang Habis Pakai">
+									<font>
+										<Font name="System Bold" size="12.0" />
+									</font>
+								</Text>
+								<TableView fx:id="tableLaporanHp" prefHeight="399.0"
+									prefWidth="577.0">
+									<columns>
+										<TableColumn fx:id="namaBarangHpCol" prefWidth="113.0"
+											text="Nama Barang" />
+										<TableColumn fx:id="jenisBarangHpCol" prefWidth="52.0"
+											text="Jenis" />
+										<TableColumn prefWidth="89.0" text="Jumlah ">
+											<columns>
+												<TableColumn fx:id="jumlahAwalHpCol" prefWidth="98.0"
+													text="Awal" />
+												<TableColumn fx:id="jumlahAkhirHpCol" prefWidth="89.0"
+													text="Akhir" />
+											</columns>
+										</TableColumn>
+										<TableColumn prefWidth="94.0" text="Status">
+											<columns>
+												<TableColumn fx:id="kembaliHpCol" prefWidth="75.0"
+													text="K" />
+												<TableColumn fx:id="belumKembaliHpCol"
+													prefWidth="75.0" text="BK" />
+											</columns>
+										</TableColumn>
+										<TableColumn fx:id="jumlahProsHpCol" prefWidth="97.0"
+											text="Jml. Proses" />
+									</columns>
+								</TableView>
+								<Text strokeType="OUTSIDE" strokeWidth="0.0"
+									text="Data Barang Tidak Habis Pakai">
+									<font>
+										<Font name="System Bold" size="12.0" />
+									</font>
+								</Text>
+								<TableView fx:id="tableLaporanTHp" prefHeight="399.0"
+									prefWidth="577.0">
+									<columns>
+										<TableColumn fx:id="namaBarangTHpCol" prefWidth="113.0"
+											text="Nama Barang" />
+										<TableColumn fx:id="jenisBarangTHpCol" prefWidth="52.0"
+											text="Jenis" />
+										<TableColumn prefWidth="89.0" text="Jumlah ">
+											<columns>
+												<TableColumn fx:id="jumlahAwalTHpCol" prefWidth="98.0"
+													text="Awal" />
+												<TableColumn fx:id="jumlahAkhirTHpCol"
+													prefWidth="89.0" text="Akhir" />
+											</columns>
+										</TableColumn>
+										<TableColumn prefWidth="94.0" text="Status">
+											<columns>
+												<TableColumn fx:id="kembaliTHpCol" prefWidth="75.0"
+													text="K" />
+												<TableColumn fx:id="belumKembaliTHpCol"
+													prefWidth="75.0" text="BK" />
+											</columns>
+										</TableColumn>
+										<TableColumn fx:id="jumlahProsTHpCol" prefWidth="97.0"
+											text="Jml. Proses" />
+									</columns>
+								</TableView>
+							</children>
+						</VBox>
+						<Separator orientation="VERTICAL" prefHeight="200.0" />
+						<VBox prefHeight="496.0" prefWidth="677.0" spacing="10.0">
+							<children>
+								<Text strokeType="OUTSIDE" strokeWidth="0.0" text="Statistika Barang">
+									<font>
+										<Font name="Calibri Bold" size="18.0" />
+									</font>
+								</Text>
+								<Separator prefWidth="200.0" />
+								<ButtonBar prefHeight="40.0" prefWidth="200.0">
+									<buttons>
+										<DatePicker fx:id="calStat" onAction="#onActioncalStat" />
+										<Button fx:id="btnStatisticRefersh" minWidth="51.0"
+											mnemonicParsing="false" onAction="#onClickBtnStSRefersh"
+											prefHeight="25.0" text="Refresh" />
+									</buttons>
+								</ButtonBar>
+								<ScrollPane>
+									<content>
+										<VBox>
+											<children>
+												<BarChart fx:id="statisticBarangHp" prefHeight="220.0"
+													prefWidth="653.0" title="Barang Habis Pakai">
+													<xAxis>
+														<CategoryAxis side="BOTTOM" fx:id="xAxisHp" />
+													</xAxis>
+													<yAxis>
+														<NumberAxis side="LEFT" />
+													</yAxis>
+												</BarChart>
+												<BarChart fx:id="statisticBarangTHp" prefHeight="242.0"
+													prefWidth="653.0" title="Barang Tidak Habis Pakai">
+													<xAxis>
+														<CategoryAxis side="BOTTOM" fx:id="xAxisTHp" />
+													</xAxis>
+													<yAxis>
+														<NumberAxis side="LEFT" />
+													</yAxis>
+												</BarChart>
+											</children>
+										</VBox>
+									</content>
+								</ScrollPane>
+							</children>
+							<padding>
+								<Insets right="20.0" />
+							</padding>
+						</VBox>
+					</children>
+				</HBox>
+			</children>
+			<padding>
+				<Insets left="20.0" top="20.0" />
+			</padding>
+		</VBox>
+	</children>
+</AnchorPane>

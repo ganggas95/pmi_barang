@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="532.0" prefWidth="1355.0"
+	stylesheets="@../css/masterbarang.css" xmlns="http://javafx.com/javafx/8.0.40"
+	xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.stth.pmi.barang.ui.controller.BarangController">
+	<children>
+		<SplitPane dividerPositions="0.6528162511542013" prefHeight="160.0"
+			prefWidth="200.0" AnchorPane.bottomAnchor="0.0"
+			AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+			AnchorPane.topAnchor="0.0">
+			<items>
+				<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0"
+					prefWidth="100.0">
+					<children>
+						<VBox layoutY="70.0" prefHeight="413.0" prefWidth="408.0"
+							spacing="10.0" AnchorPane.bottomAnchor="0.0"
+							AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+							AnchorPane.topAnchor="0.0">
+							<children>
+								<Label prefHeight="23.0" prefWidth="377.0" text="Master Data Barang">
+									<font>
+										<Font name="System Bold" size="14.0" />
+									</font>
+								</Label>
+								<Separator prefHeight="8.0" prefWidth="404.0" />
+								<TableView fx:id="tableDataBarang" prefHeight="402.0"
+									prefWidth="260.0">
+									<columns>
+										<TableColumn fx:id="idBarang" prefWidth="75.0">
+											<graphic>
+												<Label fx:id="lblColId" text="Kode Barang" />
+											</graphic>
+										</TableColumn>
+										<TableColumn fx:id="namaBarangCol" prefWidth="156.0">
+											<graphic>
+												<Label fx:id="lblColNamaBarang" text="Nama Barang" />
+											</graphic>
+										</TableColumn>
+										<TableColumn fx:id="jenisBarangCol" prefWidth="108.0">
+											<graphic>
+												<Label fx:id="lblColJenis" text="Jenis Barang" />
+											</graphic>
+										</TableColumn>
+										<TableColumn fx:id="tglMasukCol" prefWidth="114.0">
+											<graphic>
+												<Label fx:id="lblColTglMasuk" text="Tanggal Masuk" />
+											</graphic>
+										</TableColumn>
+										<TableColumn fx:id="tglExpCol" prefWidth="88.0">
+											<graphic>
+												<Label fx:id="lblColTglExp" text="Tanggal Exp." />
+											</graphic>
+										</TableColumn>
+										<TableColumn fx:id="jumlahBarangCol" prefWidth="85.0">
+											<graphic>
+												<Label fx:id="lblColJumlah" text="Jumlah" />
+											</graphic>
+										</TableColumn>
+									</columns>
+								</TableView>
+								<TextField fx:id="textCariBarang" onAction="#onKeyPressedCari"
+									promptText="Cari Barang Di Sini" />
+							</children>
+							<padding>
+								<Insets left="30.0" right="20.0" top="10.0" />
+							</padding>
+						</VBox>
+					</children>
+				</AnchorPane>
+				<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0"
+					prefWidth="100.0">
+					<children>
+						<VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0"
+							AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+							AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+							<children>
+								<Label prefHeight="23.0" prefWidth="377.0" text="Input Data Barang">
+									<font>
+										<Font name="System Bold" size="14.0" />
+									</font>
+								</Label>
+								<Separator prefHeight="8.0" prefWidth="404.0" />
+								<VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+									<children>
+										<Text strokeType="OUTSIDE" strokeWidth="0.0" text="Kode Barang" />
+										<TextField fx:id="textKode" disable="true" />
+										<Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nama Barang" />
+										<TextField fx:id="textNamaBarang" prefHeight="25.0"
+											prefWidth="153.0" promptText="Nama Barang" />
+										<Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tanggal Masuk" />
+										<DatePicker fx:id="tanggalMasukCal" prefHeight="25.0"
+											prefWidth="275.0" promptText="Tanggal Masuk" />
+										<Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tanggal Expaired" />
+										<DatePicker fx:id="tanggalExpCal" prefHeight="25.0"
+											prefWidth="266.0" promptText="Tangga Exp." />
+										<Text strokeType="OUTSIDE" strokeWidth="0.0" text="Jenis Barang" />
+										<ComboBox fx:id="comboJenisBarang" prefHeight="25.0"
+											prefWidth="283.0" promptText="Jenis Barang" />
+										<Text strokeType="OUTSIDE" strokeWidth="0.0" text="Jumlah Barang" />
+										<TextField fx:id="textJumlahBarang" prefHeight="25.0"
+											prefWidth="153.0" promptText="Jumlah Barang" />
+										<HBox prefHeight="54.0" prefWidth="265.0" spacing="10.0">
+											<children>
+												<Button fx:id="btnRefresh" mnemonicParsing="false"
+													onAction="#onClickBtnRefresh" prefHeight="34.0" prefWidth="87.0">
+													<graphic>
+														<Label fx:id="lblBtnRefresh" text="Refresh" />
+													</graphic>
+												</Button>
+												<Button fx:id="btnHapus" mnemonicParsing="false"
+													onAction="#onClickBtnHapus" prefHeight="25.0" prefWidth="75.0">
+													<graphic>
+														<Label fx:id="lblBtnHapus" text="Hapus" />
+													</graphic>
+												</Button>
+												<Button fx:id="btnSimpan" mnemonicParsing="false"
+													onAction="#onClickBtnSimpan" prefHeight="25.0" prefWidth="83.0">
+													<graphic>
+														<Label fx:id="lblBtnSimpan" text="Simpan" />
+													</graphic>
+												</Button>
+											</children>
+										</HBox>
+									</children>
+								</VBox>
+							</children>
+							<padding>
+								<Insets left="30.0" right="30.0" top="10.0" />
+							</padding>
+						</VBox>
+					</children>
+				</AnchorPane>
+			</items>
+		</SplitPane>
+	</children>
+</AnchorPane>

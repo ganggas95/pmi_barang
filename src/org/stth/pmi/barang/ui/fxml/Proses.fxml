@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="554.0" prefWidth="1410.0" stylesheets="@../css/masterbarang.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.stth.pmi.barang.ui.controller.ProsesController">
+	<children>
+		<SplitPane dividerPositions="0.5539772727272727" layoutX="-35.0" prefHeight="160.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+			<items>
+				<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+					<children>
+						<VBox layoutX="7.0" layoutY="14.0" prefHeight="200.0" prefWidth="100.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+							<children>
+								<Text strokeType="OUTSIDE" strokeWidth="0.0" text="Proses Barang Keluar">
+									<font>
+										<Font name="Calibri Bold" size="16.0" />
+									</font>
+								</Text>
+								<Separator prefWidth="200.0" />
+								<VBox prefHeight="429.0" prefWidth="750.0" spacing="10.0">
+									<padding>
+										<Insets left="10.0" right="10.0" top="20.0" />
+									</padding>
+									<children>
+										<ButtonBar prefHeight="40.0" prefWidth="200.0">
+											<buttons>
+												<Button fx:id="btnRefresh" mnemonicParsing="false" onAction="#onClickBtnRefresh" text="Refresh" />
+											</buttons>
+										</ButtonBar>
+										<TableView fx:id="tableProses" prefHeight="330.0" prefWidth="690.0">
+											<columns>
+												<TableColumn fx:id="namaBarangCol" prefWidth="113.0" text="Nama Barang" />
+												<TableColumn fx:id="jenisBarangCol" prefWidth="58.0" text="Jenis" />
+												<TableColumn fx:id="tanggalCol" prefWidth="69.0" text="Tanggal" />
+												<TableColumn fx:id="jumlahKeluarCol" prefWidth="106.0" text="Jumlah Keluar" />
+												<TableColumn fx:id="jumlahKembaliCol" prefWidth="114.0" text="Jumlah Kembali" />
+												<TableColumn fx:id="tujuanCol" prefWidth="64.0" text="Tujuan" />
+												<TableColumn fx:id="petugasCol" prefWidth="76.0" text="Petugas" />
+												<TableColumn fx:id="statusCol" prefWidth="152.0" text="Status" />
+											</columns>
+										</TableView>
+										<TextField fx:id="cariDataBarang" onAction="#onKeyPressedCariData" promptText="Cari Data Di sini" />
+									</children>
+								</VBox>
+							</children>
+							<padding>
+								<Insets left="10.0" top="30.0" />
+							</padding>
+						</VBox>
+					</children>
+				</AnchorPane>
+				<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+					<children>
+						<HBox prefHeight="552.0" prefWidth="536.0" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+							<children>
+								<VBox prefHeight="542.0" prefWidth="260.0" spacing="10.0">
+									<children>
+										<Text strokeType="OUTSIDE" strokeWidth="0.0" text="Proses Pengambilan Barang">
+											<font>
+												<Font name="System Bold" size="16.0" />
+											</font>
+										</Text>
+										<Separator prefWidth="200.0" />
+                              <ScrollPane prefHeight="362.0" prefWidth="240.0">
+                                 <content>
+      										<VBox prefHeight="423.0" prefWidth="214.0" spacing="10.0">
+      											<children>
+      												<Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nama Barang" />
+      												<ComboBox fx:id="comboNamaBarang" onAction="#onClickComboBarang" prefHeight="25.0" prefWidth="192.0" promptText="Nama Barang" />
+      												<Text strokeType="OUTSIDE" strokeWidth="0.0" text="Kode Barang" />
+      												<TextField fx:id="textKodeBarang" disable="true" />
+      												<Text strokeType="OUTSIDE" strokeWidth="0.0" text="Jenis" />
+      												<ComboBox fx:id="comboJenis" disable="true" prefHeight="25.0" prefWidth="192.0" promptText="Jenis" />
+      												<Text strokeType="OUTSIDE" strokeWidth="0.0" text="Sisa Barang" />
+      												<TextField fx:id="textSisaBarang" editable="false" promptText="Sisa Barang" />
+      												<Text strokeType="OUTSIDE" strokeWidth="0.0" text="Jumlah Pengambilan" />
+      												<TextField fx:id="textJumlahBarang" promptText="Jumlah Pengambilan" />
+      												<Text strokeType="OUTSIDE" strokeWidth="0.0" text="Petugas" />
+      												<ComboBox fx:id="comboPetugas" prefHeight="25.0" prefWidth="197.0" promptText="Petugas" />
+      												<Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tujuan" />
+      												<TextField fx:id="textTujuan" promptText="Tujuan Donor" />
+      											</children>
+      										</VBox>
+                                 </content>
+                              </ScrollPane>
+										<ButtonBar prefHeight="53.0" prefWidth="210.0">
+											<buttons>
+												<Button fx:id="btnTambah" mnemonicParsing="false" onAction="#onClickBtnTambah" text="Tambah" />
+												<Button fx:id="btnBatal" mnemonicParsing="false" onAction="#onClickBtnBatal" text="Batal" />
+											</buttons>
+										</ButtonBar>
+									</children>
+									<padding>
+										<Insets left="20.0" top="18.0" />
+									</padding>
+								</VBox>
+								<Separator orientation="VERTICAL" prefHeight="200.0" />
+								<VBox prefHeight="542.0" prefWidth="223.0" spacing="10.0">
+									<children>
+										<Text strokeType="OUTSIDE" strokeWidth="0.0" text="Proses Pengembalian Barang">
+											<font>
+												<Font name="Calibri Bold" size="18.0" />
+											</font>
+										</Text>
+										<Separator prefWidth="200.0" />
+										<VBox prefHeight="361.0" prefWidth="248.0" spacing="10.0">
+											<children>
+												<Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nama Barang" />
+												<TextField fx:id="textNamaBarangKembali" editable="false" promptText="Nama Barang" />
+												<Text strokeType="OUTSIDE" strokeWidth="0.0" text="Kode Barang" />
+												<TextField fx:id="textKodeBarangKembali" editable="false" promptText="Kode Barang" />
+												<Text strokeType="OUTSIDE" strokeWidth="0.0" text="Jumlah Barang" />
+												<TextField fx:id="textJumlahSisiaBarang" editable="false" promptText="Jumlah Barang" />
+												<Text strokeType="OUTSIDE" strokeWidth="0.0" text="Jumlah Keluar" />
+												<TextField fx:id="textJumlahBarangKeluar" editable="false" promptText="Jumlah Keluar" />
+												<Text strokeType="OUTSIDE" strokeWidth="0.0" text="Jumlah Kembali" />
+												<TextField fx:id="textJumlahBarangKembali" promptText="Jumlah Kembali" />
+												<Text strokeType="OUTSIDE" strokeWidth="0.0" text="Status" />
+												<ComboBox fx:id="comboStatusBarang" prefWidth="150.0" promptText="Status Barang" />
+											</children>
+										</VBox>
+										<ButtonBar prefHeight="31.0" prefWidth="217.0">
+											<buttons>
+												<Button fx:id="btnSimpan" mnemonicParsing="false" onAction="#onClickSimpan" text="Simpan" />
+												<Button fx:id="btnBatalKembali" mnemonicParsing="false" onAction="#onClickBtnBatalKembali" text="Batal" />
+											</buttons>
+										</ButtonBar>
+									</children>
+									<HBox.margin>
+										<Insets />
+									</HBox.margin>
+									<padding>
+										<Insets top="20.0" />
+									</padding>
+								</VBox>
+							</children>
+							<padding>
+								<Insets top="10.0" />
+							</padding>
+						</HBox>
+					</children>
+				</AnchorPane>
+			</items>
+		</SplitPane>
+	</children>
+</AnchorPane>
